@@ -54,16 +54,12 @@ void setup() {
   #endif
     
   Serial.begin(115200);
-  mpu.initialize();
-  pinMode(INTERRUPT_PIN, INPUT);
-  devStatus = mpu.dmpInitialize();
 
   /* Gyro Offsets */
   mpu.setXGyroOffset(220);
   mpu.setYGyroOffset(76);
   mpu.setZGyroOffset(-85);
   mpu.setZAccelOffset(1788);
-
 
   /* Attach Servos */
   left_aileronServo.attach(left_aileronPin);
