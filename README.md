@@ -13,5 +13,5 @@ The following libraries were used in this project:
 * For the PID - https://github.com/br3ttb/Arduino-PID-Library
 
 ## Author
-Omar Husain
+Omar Husain <br />
 In collaboration with Jeromy Denk and Jason Killen
