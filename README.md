@@ -1,5 +1,5 @@
 # ELG3336_Self-Leveling-Glider
-GOAL: TO Develop a self-leveling glider. 
+GOAL: To Develop a self-leveling glider. 
 
 ## Motivation
 Initially part of our final project for ELG3336 at the University of Ottawa
