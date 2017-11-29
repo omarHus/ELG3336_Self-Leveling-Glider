@@ -65,7 +65,6 @@ void setup() {
   left_aileronServo.attach(left_aileronPin);
   right_aileronServo.attach(right_aileronPin);
   elevatorServo.attach(elevatorPin);
-  rudderServo.attach(rudderPin);
   
   /* Set all servos to zero position */
   left_aileronServo.write(90);
@@ -77,7 +76,6 @@ void setup() {
   pitchPID.SetMode(AUTOMATIC);
   rollPID.SetOutputLimits(-180,180);
   pitchPID.SetOutputLimits(-180,180);
-
   
   /* initialize variables to pace updates to correct rate */
   microsPerReading = 400;
@@ -133,15 +131,15 @@ void loop() {
   aileronOutput = rollOutput;
   elevatorOutput = pitchOutput;   
     
-   if (invertedElevator)
-   {
-      elevatorOutput = -elevatorOutput;
-   }
+  if (invertedElevator)
+  {
+    elevatorOutput = -elevatorOutput;
+  }
   
-    /* Offset PID output to map onto Servo range */
-   elevatorOutput = elevatorOutput +90;
-   aileronOutput = aileronOutput +90;
-   opposite_aileronOutput = aileronOutput;
+  /* Offset PID output to map onto Servo range */
+  elevatorOutput = elevatorOutput +90;
+  aileronOutput = aileronOutput +90;
+  opposite_aileronOutput = aileronOutput;
   
   /*Print PID output values */
   Serial.print(aileronOutput);
@@ -150,27 +148,27 @@ void loop() {
   Serial.print(",");
    
   /* Increase resolution of servo commands */
-   elevatorOutput = map(elevatorOutput, 0, 180, 450, 2450);
-   aileronOutput = map(aileronOutput, 0, 180, 450, 2450);
-   opposite_aileronOutput = map(opposite_aileronOutput, 0, 180, 450, 2450);
+  elevatorOutput = map(elevatorOutput, 0, 180, 450, 2450);
+  aileronOutput = map(aileronOutput, 0, 180, 450, 2450);
+  opposite_aileronOutput = map(opposite_aileronOutput, 0, 180, 450, 2450);
   
-   /* Limit on servo inputs */
-   if (elevatorOutput < minPitch)
-   {
-      elevatorOutput = minPitch;
-   }
-   if (elevatorOutput > maxPitch)
-   {
-      elevatorOutput = maxPitch;
-   }
-   if (aileronOutput < minRoll)
-   {
-      aileronOutput = minRoll;
-   }
-   if (aileronOutput > maxRoll)
-   {
-      aileronOutput = maxRoll;
-   }
+  /* Limit on servo inputs */
+  if (elevatorOutput < minPitch)
+  {
+    elevatorOutput = minPitch;
+  }
+  if (elevatorOutput > maxPitch)
+  {
+    elevatorOutput = maxPitch;
+  }
+  if (aileronOutput < minRoll)
+  {
+    aileronOutput = minRoll;
+  }
+  if (aileronOutput > maxRoll)
+  {
+    aileronOutput = maxRoll;
+  }
 
   /* Send PID output data to RaspberryPi */
   Serial.print(aileronOutput);
