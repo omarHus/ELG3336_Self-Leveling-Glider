@@ -7,6 +7,9 @@ Initially part of our final project for ELG3336 at the University of Ottawa
 ## Progress
 This project currently has two stages of development. In the first stage, PID controllers will allow the glider to self-level. In the second stage, the glider will be able to fly a set course using magnetometer and GPS data.
 
+## Demonstration
+[![Glider Video](https://imgur.com/wAnPvRO)](https://www.youtube.com/watch?v=k0IfYLWKSW4 "ELG3336 Self-Leveling Glider")
+
 ## Libraries
 The following libraries were used in this project:
 * For the IMU - https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050
